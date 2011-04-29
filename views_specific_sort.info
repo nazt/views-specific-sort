@@ -1,0 +1,6 @@
+; $Id$
+name = "Specific Sorting Views"
+description = "Specific Sorting Views"
+package = Views
+core = 6.x
+dependencies[] = views

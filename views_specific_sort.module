@@ -1,0 +1,40 @@
+<?php
+// $Id$
+/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
+/**
+ * @author     Niels Hackius <niels.hackius@tu-harburg.de>
+ * @copyright  2007, Technische Universität Hamburg-Harburg: Institut für Logistik und Unternehmensführung
+ * @license    http://www.opensource.org/licenses/gpl-2.0.php  The GNU General Public License (GPL) Version 2, June 1991
+ * @since	   14.10.2008
+ *
+ */
+
+ /**
+ * Implementation of hook_views_data()
+ */
+ function views_specific_sort_views_data()
+ {
+ 	 $data['views']['specific'] = array(
+    'title' => t('Specific'),
+    'help' => t('Specify the display order.'),
+    'sort' => array(
+      'handler' => 'views_handler_sort_specific',
+    ),
+  );
+  return $data;
+ }
+
+ function views_specific_sort_views_handlers()
+ {
+  return array(
+    'info' => array(
+      'path' => drupal_get_path('module', 'views_specific_sort'),
+    ),
+    'handlers' => array(
+    //implementing sort handler
+       'views_handler_sort_specific' => array(
+        'parent' => 'views_handler_sort',
+      	),
+      )
+    );
+ }
